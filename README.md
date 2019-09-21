@@ -3,10 +3,10 @@
 ![space](https://github.com/nicolasbaez/space003/blob/master/space003.gif)
 
 ```processing
-int cantidad=8;
+int cantidad=128;
 int dRotacion=2;
 int velocidad=1;
-int maxBox=64;
+int maxBox=32;
 float xx[]=new float[cantidad];
 float yy[]=new float[cantidad];
 float zz[]=new float[cantidad];
@@ -40,9 +40,10 @@ void setup() {
   }
 }
 void draw() {
-  fill(0);
+  background(0);
+  stroke(0);
   for (int i=0; i<cantidad; i++) {
-    stroke(rr[i], 0, 0);
+    fill(rr[i], 0, 0);
     pushMatrix();
     translate(xPos[i], yPos[i], zPos[i]);
     rotateX(radians(xx[i]));
