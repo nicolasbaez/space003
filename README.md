@@ -20,6 +20,7 @@ float zPos[]=new float[cantidad];
 float rr[]=new float[cantidad];
 float bx[]=new float[cantidad];
 int cuadros=0;
+int boxColor=0;
 void setup() {
   background(0);
   smooth();
@@ -35,7 +36,7 @@ void setup() {
     xPos[i]=0;
     yPos[i]=random(height)+1;
     zPos[i]=random(height)+1;
-    rr[i]=random(128, 255)+1;
+    rr[i]=0;
     bx[i]=random(maxBox)+1;
   }
 }
@@ -56,6 +57,7 @@ void draw() {
     zz[i]+=dz[i];
     xPos[i]+=dv[i];
     if (xPos[i]>=width) {
+      boxColor=1;
       xx[i]=0;
       yy[i]=0;
       zz[i]=0;
@@ -70,10 +72,10 @@ void draw() {
       bx[i]=random(maxBox)+1;
     }
   }
-  cuadros++;
-  println(cuadros);
-  if (cuadros<=512) {
+  if (boxColor==1&&cuadros<=1024) {
     saveFrame("gif/space003-######.png");
+    cuadros++;
+    println(cuadros);
   }
 }
 ```
